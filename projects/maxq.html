@@ -1,0 +1,146 @@
+---
+layout: default
+title: MaxQ
+permalink: /projects/MaxQ
+footer: true
+---
+
+{% include base.html %}
+<!-- Marketing messaging and featurettes -->
+<div class="callout row">
+  <div class="container">
+    <div class="col-xs-12">
+      <a class="contrast" href="https://www.maxq.ai/" target="_blank"><img id="maxq" class="powered-logo img-responsive center-block in-down" src="{{ base }}/assets/img/powered/maxq.png" alt="MaxQ Logo"></a>
+    </div>
+  </div>
+</div>
+<div class="container centered">
+  <h1 class="in-left">The Project</h1>
+  <small class="in-left">The requests made by the client:</small>
+  <ul class="ul-none">
+    <li class="in-right-one-half"><strong><span class="minus">&#45;&nbsp;&nbsp;</span>GPU Utilization</strong></li>
+    <li class="in-right-two"><strong><span class="minus">&#45;&nbsp;&nbsp;</span>Cloud Costs</strong></li>
+    <li class="in-right-two-half"><strong><span class="minus">&#45;&nbsp;&nbsp;</span>Waiting time during CI/CD</strong></li>
+    <li class="in-right-three"><strong><span class="plus">&#43;&nbsp;&nbsp;</span>Queuing</strong></li>
+    <li class="in-right-three-half"><strong><span class="plus">&#43;&nbsp;&nbsp;</span>Automation</strong></li>
+    <li class="in-right-four"><strong><span class="plus">&#43;&nbsp;&nbsp;</span>Tests</strong></li>
+    <li class="in-right-four-half"><strong><span class="plus">&#43;&nbsp;&nbsp;</span>Security</strong></li>
+    <li class="in-right-five"><strong><span class="plus">&#43;&nbsp;&nbsp;</span>Monitoring</strong></li>
+  </ul>
+</div>
+<div class="container centered in-right paragraph">
+  <article>
+    <h1>The Challenge</h1>
+    <small>All the tricky technical details that bug us:</small>
+    <ol class="ol-none">
+      <li><strong><u>On-demand CI/CD:</u></strong>&nbsp;Jenkins stands up running for months and costs way too much according to pace of Integration/Deployment shown by the company. A solution would be to build a role via Ansible for AWS Provision and plug it to Jenkins. That would reduce costs by a double digit number at least. Another solution implies scanning cloud costs, going through each via an automated python script, and define what could be reduced/removed.
+      </li>
+      <li><strong><u>Jenkins Scalp:</u></strong>&nbsp;Go through Pipeline, Determine Imperative/Declarative, Implement Parallel CI, Define Delivery, AquaSec.</li>
+      <li><strong><u>Testing:</u></strong>&nbsp;Help and add UI testing.</li>
+      <li><strong><u>Handle Machine:</u></strong>&nbsp;Look through GPU use, add Queuing and complete system automation.</li>
+      <li><strong><u>Monitoring:</u></strong>&nbsp;Prometheus and Grafana to the rescue.</li>
+    </ol>
+  </article>
+</div>
+<div class="container centered in-up">
+  <h1>The Stack</h1>
+  <small>All these technologies were used for this job:</small>
+  <div class="container stack">
+    <div class="col stack row">
+      <div class="card-container" onclick="window.open('https://www.python.org/', '_blank');">
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="card-stack maxq">
+          <h4></h4>
+          <span class="chev">&rsaquo; Python</span>
+        </div>
+      </div>
+      <div class="card-container" onclick="window.open('https://aws.amazon.com/', '_blank');">
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="card-stack maxq">
+          <h4></h4>
+          <span class="chev">&rsaquo; Amazon Web Services</span>
+        </div>
+      </div>
+      <div class="card-container" onclick="window.open('https://jenkins.io/', '_blank');">
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="card-stack maxq">
+          <h4></h4>
+          <span class="chev">&rsaquo; Jenkins</span>
+        </div>
+      </div>
+    </div>
+    <div class="col stack row">
+      <div class="card-container" onclick="window.open('https://www.linux.org/', '_blank');">
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="card-stack maxq">
+          <h4></h4>
+          <span class="chev">&rsaquo; Linux</span>
+        </div>
+      </div>
+      <div class="card-container" onclick="window.open('https://prometheus.io/', '_blank');">
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="card-stack maxq">
+          <h4></h4>
+          <span class="chev">&rsaquo; Prometheus</span>
+        </div>
+      </div>
+      <div class="card-container" onclick="window.open('https://www.bitbucket.org/', '_blank');">
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="card-stack maxq">
+          <h4></h4>
+          <span class="chev">&rsaquo; Bitbucket</span>
+        </div>
+      </div>
+    </div>
+    <div class="col stack row">
+      <div class="card-container" onclick="window.open('https://www.docker.com/', '_blank');">
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="card-stack maxq">
+          <h4></h4>
+          <span class="chev">&rsaquo; Docker</span>
+        </div>
+      </div>
+      <div class="card-container" onclick="window.open('https://www.aquasec.com/', '_blank');">
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="card-stack maxq">
+          <h4></h4>
+          <span class="chev">&rsaquo; AquaSec</span>
+        </div>
+      </div>
+      <div class="card-container" onclick="window.open('https://grafana.com/', '_blank');">
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="overlay"></div>
+        <div class="card-stack maxq">
+          <h4></h4>
+          <span class="chev">&rsaquo; Grafana</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

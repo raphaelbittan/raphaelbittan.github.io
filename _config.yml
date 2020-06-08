@@ -1,0 +1,279 @@
+## Welcome to Jekyll !
+
+##! This config file is meant for settings that affect your whole blog, values
+##! which you are expected to set up once and rarely edit after that. If you find
+##! yourself editing this file very often, consider using Jekyll's data files
+##! feature for the data you need to update frequently.
+
+##! Do not use tabs in configuration files
+##! This will either lead to parsing errors, or Jekyll will revert to the default settings. Use spaces instead.
+
+##! For technical reasons, this file is *NOT* reloaded automatically when you use
+##! 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+##! Data Files are included and reloaded during automatic regeneration.
+
+##! Site settings
+##! These are used to personalize your new site. If you look in the HTML files,
+##! you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+##! You can create any custom variable you would like, and they will be accessible
+##! in the templates via {{ site.myvariable }}.
+
+########################
+# CUSTOM CONFIGURATION #
+########################
+
+### URL
+### the base hostname & protocol for your site, e.g. http://example.com
+url: "https://raphaelbittan.github.io"
+title: A Devops Journey
+description: Personal Static Website
+keywords: HTML, CSS, JavaScript, Jekyll, Github Pages, DevOps, Blog, Notebook, Portfolio, Static, Website
+
+### Markdown
+theme: minima
+markdown: kramdown
+
+### Plugins
+plugins:
+  - jekyll-redirect-from
+  - jemoji
+  - jekyll-algolia
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+### Whitelist Plugins
+whitelist:
+  - jekyll-redirect-from
+  - jemoji
+  - jekyll-algolia
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+### Redirect From
+# redirect_from:
+#  json: false
+
+### Algolia
+algolia:
+  # Actually index the index.html/index.md pages
+  files_to_exclude: ["404.html", "index.html", "blog.html", "README.md", "tests/*", "scripts/*", "src/*", "tmp/*", "about.html", "report/*", "_data/*"]
+  # Only index custom paragraphs
+  nodes_to_index: 'div.paragraph'
+  indexing_batch_size: 1000
+  max_record_size: 10000
+  application_id: FA99GIWUSR
+  index_name: raphaelbittan-github
+  search_only_api_key: f96774007dcad3d78f47cb26946c76f6
+
+### Author Info
+author:
+  name: Raphaël Bittan
+  title: Outsourced Devops Lead
+  location: Israël
+  age: 1993
+  github: raphaelbittan
+  twitter: BettanRaphael
+  facebook: raphael.bettan.5
+  linkedin: raphaël-bittan
+  email:
+    gmail: bittanraphael@gmail.com
+    agilesparks: raphael.bittan@agilesparks.com
+
+# Set a custom cutmark to separate the excerpt from the rest of the post
+excerpt_separator: <!--more-->
+
+### Posts
+posts:
+  - title: Website Development Process
+    url: "{{base}}/{{page.language}}/blog/how-to-write-a-website.html"
+    image: "{{base}}/assets/img/fireshot/Website_Development_Process.png"
+    posted: 2019/06/12
+
+### Categories
+categories: [blog, devops, fullstack, devsecops, sysops, front-end, back-end, tech, high-tech, web design]
+
+### Tags
+tags:
+  - 2020
+  - 2019
+  - 2018
+  - 2017
+  - 2016
+  - architecture
+  - education
+  - web
+
+### Staticman API Bridge Endpoint
+staticman_url: https://staticman-raphaelbittan.herokuapp.com/v2/entry/raphaelbittan/raphaelbittan.github.io/master/comments
+
+### reCAPTCHA
+reCaptcha:
+  siteKey: 6Lf4pmgUAAAAABzHGFwqrQrgoetoprdspLWXKxF7
+  secret: VEP2WW2UQEnDAmLSOVxOhwU9pxUOOWL9P/3Uk+EvkmhHS3rqW/OzrfzaWyp8BCIN7+G7M89r4REBgVnLqceAWiyVXXV3Sz0qdyXJOnuvbSgKeq/qzE3j2ycD5ZQfWlp4lIC0HUDxgzkjlhY0sPvtq4SPSZERz97I7KnyIIjZWDp+x2dr0lyPqIyTkhM5HWfPPRfohIgS8/fRns3jHUqPg2Ep+UiXQTLVkIKBqdEk9N92OOhhNH6tpC/vsHSLbkvgavlIwtC7q9VvKdftfN8bzQR0kZiSNfAasZbM8XPViFciyG+xzgbA7TBVN8W5b12xCmpg4fgtjB53te8nmWXso9zsi3GbXx3Vbn+LQoWt+46SlxSSnBAxzddBKmHXst21XyJcT2qR44yx/d/op+KrSZvLcvFGQYu2FEq6ePpJDFBjqDG1hOT260GHDi4dfJxttd/fASsJqdqtWAP8V4SY17WHtlfDSKABZqdKWdLeKIvYPioNN5Ifi/pZ9uF6GeKW+ioFKAdjvQU2NH6eVzha1E5cYsgQsni1PD69iJckG2zdrdgCT0XWVCcdR9XPRcSgyyNQqL6YUEHR57O7y6sROBt96pJOaJy/i3q2GyM76Lx3Wa68/puKGlENx0fzolGEFJ+KAo8nJfSXnG3Mm0YEzjrYqCtq5FMMrXbM74DG//E=
+
+### Google-analytics
+google-analytics:
+  id: "UA-165452154-1"
+
+########################
+# GLOBAL CONFIGURATION #
+########################
+
+### Site Source
+### Change the directory where Jekyll will read files.
+source: .
+
+### Site Destination
+### Change the directory where Jekyll will write files.
+### Destination folders are cleaned on site builds.
+### The contents of <destination> are automatically cleaned, by default, when the site is built.
+### Files or folders that are not created by your site will be removed.
+### Some files could be retained by specifying them within the <keep_files> configuration directive.
+### Do not use an important location for <destination>;
+### instead, use it as a staging area and copy files from there to your web server.
+destination: ./_site
+
+### Site Data
+### Change the directory where Jekyll will read data files.
+# data_dir: _data
+
+### Site Layouts
+### Change the directory where Jekyll will read layout files.
+# layouts_dir:  _layouts
+
+### Site Includes
+### Change the directory where Jekyll will read included files.
+# includes_dir: _includes
+
+### Safe
+### Disable custom plugins, caching to disk and ignore symbolic links.
+safe: true
+
+### Disable Disk Cache
+### Disable caching of content to disk in order to skip creating a .jekyll-cache or similar directory
+### at the source to avoid interference with virtual environments and third-party directory watchers.
+### Caching to disk is always disabled in safe mode.
+# disable_disk_cache: true
+
+### Exclude
+### Exclude directories and/or files from the conversion.
+### These exclusions are relative to the site's source directory and cannot be outside the source directory.
+### The following items will not be processed, by default.
+### Create a custom list to override the default setting.
+# exclude: [DIR, FILE, ...]
+exclude:
+  - LICENSE
+  - ROADMAP\.md
+  - scripts/
+  - src/
+  - \.github/
+  - \.git/
+  - tests/
+  - tmp/
+  - \.editorconfig
+  - Gruntfile\.js
+  - gulpfile\.js
+  - package\.json
+  - package-lock\.json
+  - \_data/licenses\.json
+  - vendor/
+  - \.env
+  - \.env\.enc
+  - \.crontab
+  - report/
+  - \.post-template
+  - \.gitignore
+  - \.gitattributes
+  - \.vscode/
+
+
+### Include
+### Force inclusion of directories and/or files in the conversion.
+# include: [DIR, FILE, ...]
+
+### Keep Files
+### When clobbering the site destination, keep the selected files. Useful for files that are not generated by jekyll;
+### e.g. files or assets that are generated by your build tool.
+# keep_files: [DIR, FILE, ...]
+
+### Time Zone
+### Set the time zone for site generation.
+### This sets the TZ environment variable, which Ruby uses to handle time and date creation and manipulation.
+### When serving on a local machine, the default time zone is set by your operating system.
+### But when served on a remote host/server, the default time zone depends on the server's setting or location.
+timezone: Asia/Jerusalem
+
+### Encoding
+### Set the encoding of files by name (only available for Ruby 1.9 or later).
+### The default value is utf-8 starting in 2.0.0, and nil before 2.0.0, which will yield the Ruby default of ASCII-8BIT.
+### Available encodings can be shown by the command ruby -e 'puts Encoding::list.join("\n")'.
+# encoding: ASCII-8BIT
+
+#######################
+# BUILD CONFIGURATION #
+#######################
+
+### Drafts
+### Process and render draft posts.
+# show_drafts: true
+
+### Future
+### Publish posts or collection documents with a future date.
+# future: true
+
+### Unpublished
+### Render posts that were marked as unpublished.
+# unpublished: true
+
+### LSI
+### Produce an index for related posts. Requires the classifier-reborn plugin.
+# lsi: true
+
+### Limit Posts
+### Limit the number of posts to parse and publish.
+limit_posts: 100
+
+### Force polling
+### Force watch to use polling.
+force_polling: true
+
+### Incremental build
+### Enable the experimental incremental build feature. Incremental build only re-builds posts and pages that have changed,
+### resulting in significant performance improvements for large sites, but may also break site generation in certain cases.
+# incremental: true
+
+### Liquid profiler
+### Generate a Liquid rendering profile to help you identify performance bottlenecks.
+profile: true
+
+### Strict Front Matter
+### Cause a build to fail if there is a YAML syntax error in a page's front matter.
+strict_front_matter: true
+liquid:
+  error_mode: strict
+
+### BaseURL
+### the subpath of your site, e.g. /blog
+# baseurl: ""
+
+#######################
+# SERVE CONFIGURATION #
+#######################
+
+### Local Server Port
+### Listen on the given port.
+# port: 4000
+
+### Local Server Hostname
+### Listen at the given hostname.
+# host: ""
+
+### Live Reload
+### Reload a page automatically on the browser when its content is edited.
+# livereload: true
+
+### Detach
+### Detach the server from the terminal.
+# detach: true

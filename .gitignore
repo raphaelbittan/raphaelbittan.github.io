@@ -1,0 +1,37 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Build
+_site/
+src/
+
+# Jekyll
+.jekyll
+.jekyll-metadata
+.jekyll-cache
+
+# Ruby
+Gemfile.lock
+
+# Bundler
+.bundle
+.sass-cache
+
+# Node
+/node_modules
+package-lock.json
+yarn.lock
+
+# Tests
+tmp/
+report/
+
+# Misc
+.sekrets.key
+.history
+.DS_Store
+ROADMAP.md
+.env
+.crontab

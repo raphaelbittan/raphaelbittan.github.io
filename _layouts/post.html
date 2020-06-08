@@ -1,0 +1,31 @@
+{% include base.html %}
+{% include head.html %}
+
+  <body>
+  	{% include header.html %}
+    <div id="main" class="container">
+      <ul id="post-ul">
+      	<li><small>Posted: </small><span id="post-date">{{ page.date | date_to_string }}</span></li>
+        <li><small>Author: </small>{{ site.author.name }}</li>
+        <li><small>Read: </small><span class="eta"></span></li>
+      </ul>
+      <br />
+      <article id="content" class="container">
+      	<br />
+          {{ content | emojify | markdownify }}
+        <hr />
+      </article>
+      {% if page.comments == true %}
+        {% include comments.html %}
+      {% endif %}
+      {% include footer.html %}
+    </div>
+    {% include end_of_body_scripts.html %}
+    <script type="text/javascript">
+      $(function() {
+        $('article').readingTime();
+      });
+    </script>
+    {% include issues.html element=".post-content" github_account="raphaelbittan/raphaelbittan.github.io" require_cookie_consent="true" %}
+  </body>
+</html>

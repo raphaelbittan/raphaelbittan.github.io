@@ -1,0 +1,86 @@
+# Please refer to https://artillery.io/docs/http-reference/ for any further information.
+config:
+  target: 'https://raphaelbittan.github.io'
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+  http:
+    ## Responses have to be sent within 10 seconds or the request will be aborted.
+    timeout: 10
+    ## All HTTP requests from all virtual users will be sent over the same 10 connections.
+    # pool: 10 
+  #   tls:
+  #     ## By default, Artillery will reject SSL certificates that it's unable to validate.
+  #     rejectUnauthorized: false
+  phases:
+    - duration: 60
+      arrivalRate: 20
+  ## Define variables to be used in scenario/
+  variables:
+    # postIds:
+    #   - ["", "", ""]
+  ## Tell Artillery to load your custom code.
+  processor: "./artillery.js"
+scenarios:
+  - flow:
+    ## Debug messages can be logged with the log action.
+    - log: "New virtual user running"
+    ## Call setupSomeData JS function.
+    - function: "setupSomeData"
+    - loop:
+      - get:
+        url: "/"
+        ## To tell Artillery to parse a response, add a capture attribute to any request spec like so.
+        capture:
+          - json: $.status
+            as: "status"
+      ## whileTrue true takes precendence over count and over attributes if either of those is specified.
+      whileTrue: "checkStatus"
+    ## Wait for 1 seconds.
+    - think: 1
+    - loop:
+      - get:
+        url: "/post/{{ $loopElement }}"
+        ## An ifTrue attribute may be used to only execute a request in a flow if a condition is met. 
+        # ifTrue: "postIds"
+      ## Specify hardcoded values as array to loop over, or define scanrio variable.
+      # over: postIds
+      count: 10
+    ## Wait for 2 seconds.
+    - think: 2
+    - get:
+      url: "/about.html"
+      headers:
+        X-My-Header: "TestFromLocalHostWithArtillery"
+      ## To stop Artillery from following redirects, set to false.
+      # followRedirect: false
+      ## If Auth is required, add the lines below.
+      # auth:
+      #   user: myusername
+      #   pass: mypassword
+      ## Query strings can be appended directly to the url or set with qs.
+      # qs:
+      #   search_keyword: "coffee"
+      #   page_size: 25
+      ## Custom cookies can be specified with cookie attribute in individual requests.
+      # cookie:
+      #   saved: "tapir,sloth"
+    ## Wait for 3 seconds.
+    - think: 3
+    # - post:
+    #   url: ""
+    #   json:
+    #     hello: "world"
+    #   ## Set gzip to true to have Artillery add an Accept-Encoding header to the request, and decode compressed responses.
+    #   gzip: true
+    #   ## Use the form attribute to send an URL-encoded form (application/x-www-form-urlencoded).
+    #   form:
+    #     name: "Homer Simpson"
+    #     favorite_food: "donuts"
+    #   ## Use the formData attribute to send a multipart/form-data form (forms containing files, non-ASCII data, and binary data).
+    #   formData:
+    #     name: "Homer Simpson"
+    #     favorite_food: "donuts"
+    #   ## beforeRequest and afterResponse hooks can be set in a request spec.
+    #   beforeRequest: "setJSONBody"
+    #   afterResponse: "logHeaders"

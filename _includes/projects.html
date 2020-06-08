@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="user-projects col-12">
+    <div class="in-right">
+      <img alt="Consulting" data-src="{{ base }}/assets/img/landing/consulting.png" class="lazyload" />
+    </div>
+    <div id="cnt1" class="contents">
+      <ul>
+        <li><u><strong>DevOps Consulting</strong></u></li>
+      </ul>
+      <p>
+        Designed for technology-driven enterprises aiming to achieve efficiencies in their IT operations, and that guides and facilitates their DevOps transformation in order to <strong style="color: red;">increase the speed of delivery</strong>, <strong style="color: red;">improve release quality</strong>, <strong style="color: red;">cut costs</strong>, and <strong style="color: red;">minimize operational failures</strong>...
+      </p>
+      <a id="rocket" class="project-link" href="{{ base }}/projects.html">Read More..</a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="user-projects col-12">
+    <div class="in-left">
+      <img alt="Hands-on" data-src="{{ base }}/assets/img/landing/hands-on.png" class="lazyload" />
+    </div>
+    <div id="cnt2" class="contents-right">
+      <ul>
+        <li><u><strong style="color: black;">Hands-On DevOps</strong></u></li>
+      </ul>
+      <p>
+        Collection of katas focused on three DevOps concepts:
+        <strong style="color: red;">Continuous Integration</strong>, <strong style="color: red;">Continuous Delivery</strong>, and <strong style="color:red;">Continuous Deployment</strong>.
+        The key to scalable, resilient and reliable micro-services lies in hand-made cloud based elastic deployments with several layers of failover. A DevOps culture also provides the technology to operate services responsibly with operational insight, peak performance, and security, as well as big data analytics that allow us to make informed decisions on how to improve our service.
+      </p>
+      <a class="project-link" href="https://www.katacoda.com/" target="_blank">Learn Katas!</a>
+    </div>
+  </div>
+</div>
+{% if page.title == 'Welcome' %}
+  <img data-src="{{ base }}/assets/img/landing/rocket.png" alt="Rocket" class="rocket lazyload" />
+{% endif %}

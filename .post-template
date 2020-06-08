@@ -1,0 +1,18 @@
+---
+layout: post
+title:
+date:
+permalink: /blog/:title:output_ext
+lang:
+categories: []
+tags: []
+comments: true
+comment_issue_id: 1
+---
+
+<div class="paragraph">
+  <h1 style="text-align:center;">{{ page.title }}</h1>
+  <p></p>
+</div>
+
+<!-- more -->

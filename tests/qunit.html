@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="{{ base }}/assets/img/logo/favicon.ico" />
+    <title>Qunit Test Suite</title>
+    <link rel="shortcut icon" href="{{ base }}/assets/img/logo/favicon.ico" />
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css" data-proofer-ignore>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" data-proofer-ignore></script>
+  </head>
+  <body>
+    <!-- Qunit section -->
+    <div id="qunit">
+    </div>
+    <div id="qunit-fixture">
+      this had better work.
+    </div>
+    <p class="prettydate" style="margin-top:20px;"></p>
+    <script type="text/javascript" src="https://code.jquery.com/qunit/qunit-2.9.2.js" data-proofer-ignore></script>
+    <script type="text/javascript" src="../assets/js/prettydate.js"></script>
+    <script type="text/javascript">
+      date = new Date();
+      sdate = date.toUTCString('yyyy-MM-dd hh:mm');
+      $(".prettydate").append(sdate);
+      $(".prettydate").prettydate();
+    </script>
+    <script type="text/javascript" src="./qunit.js"></script>
+  </body>
+</html>

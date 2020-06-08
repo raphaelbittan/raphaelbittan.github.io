@@ -1,0 +1,81 @@
+{
+  "name": "raphael.github.io",
+  "author": "Raphaël Bittan",
+  "version": "1.0.0",
+  "license": "ISC",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raphaelbittan/raphaelbittan.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raphaelbittan/raphaelbittan.github.io/issues"
+  },
+  "homepage": "https://github.com/raphaelbittan/raphaelbittan.github.io",
+  "description": "A DevOps Journey",
+  "keywords": [
+    "Open-Source",
+    "Github",
+    "HTML",
+    "CSS",
+    "Bootstrap",
+    "Javascript",
+    "jQuery",
+    "Jekyll",
+    "Ruby",
+    "SASS"
+  ],
+  "scripts": {
+    "clean:sw": "rm -f sw.js* && find workbox* ! -name workbox-config.js -delete",
+    "test:artillery": "artillery run tests/artillery.yml",
+    "test:qunit": "grunt:qunit",
+    "test:htmlproofer": "gulp -- htmlproofer",
+    "test": "concurrently \"npm run test:qunit\" \"npm run test:htmlproofer\" \"npm run test:artillery\"",
+    "report:script-sync": "gulp -- script-sync",
+    "report:sitemap": "tree -I 'node_modules' -s -D -F -o report/SITEMAP.md",
+    "report:modules": "npm ls > report/MODULES.md",
+    "report": "concurrently \"npm run report:sitemap\" \"npm run report:modules\"",
+    "build:qr": "python3 scripts/createQRCode.py",
+    "build:cron": "crontab .crontab && crontab -l",
+    "build:manifest": "python scripts/createManifestJSON.py",
+    "build:sw": "workbox generateSW workbox-config.js",
+    "build:pwa": "concurrently \"npm run build:manifest\" \"npm run build:sw\"",
+    "build:development": "gulp -- development",
+    "build:production": "gulp -- production",
+    "deploy:development": "npm run build:manifest && npm run clean:sw && npm run build:production && npm run build:sw && npm run build:development",
+    "deploy:production": "npm run build:manifest && npm run clean:sw && npm run build:production && npm run clean:sw && npm run build:sw && npm run build:production && scripts/push.sh",
+    "debug": "bundle exec jekyll build --verbose --trace > report/JEKYLL_BUILD.log"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "artillery": "^1.6.0",
+    "browser-sync": "^2.26.7",
+    "concurrently": "^5.1.0",
+    "del": "^5.1.0",
+    "dotenv": "^8.2.0",
+    "grunt": "^1.1.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-format-md": "^2.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-npm-script-sync": "^1.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "qunit": "^2.9.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

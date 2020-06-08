@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><html class="no-js" lang="en"><![endif]-->
+  <head>
+    {% if site.google-analytics %}
+      {% include google_analytics.html %}
+    {% endif %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="{{ site.title }}">
+    <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+    <meta name="msapplication-navbutton-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white-translucent">
+    <meta name="msapplication-starturl" content="/?source=pwa">
+    <meta name="theme-color" content="#000000"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="author" content="{{ site.author['name'] }}" />
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+    <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}" />
+    {% capture keywords %}{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}{% endcapture %}
+    <meta name="keywords" content="{{ description }}" />
+    <link rel="manifest" href="{{base}}/manifest.json">
+    <link rel="icon" href="{{ base }}/assets/img/logo/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ base }}/assets/img/logo/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{{ base }}/assets/img/logo/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ base }}/assets/img/logo/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ base }}/assets/img/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ base }}/assets/img/logo/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ base }}/assets/img/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ base }}/assets/img/logo/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ base }}/assets/img/logo/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ base }}/assets/img/logo/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ base }}/assets/img/logo/apple-touch-icon-57x57.png" />
+    <meta name="msapplication-TileColor" content="#000">
+    <meta name="msapplication-TileImage" content="{{ base }}/assets/img/logo/apple-touch-icon-144x144.png">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Custom Font-Awesome Icons -->
+    <script type="text/javascript" src="https://kit.fontawesome.com/6236e5b57e.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- DevIcon -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
+    {% if page.title == "Blog" %}
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css" />
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css" />
+    {% endif %}
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ base }}/assets/css/main.css" />
+    {% feed_meta %}
+    {% seo %}
+    <script type="application/ld+json">
+      {
+        "description":"{
+          “en”=&gt;”{{ description | strip_html | condense_spaces | truncate:150 }}”,
+          “fr”=&gt;”{{ description | strip_html | condense_spaces | truncate:150 }}”
+        }",
+        "@type":"WebSite",
+        "url":"{{ site.url }}/",
+        "name":"{{ site.title }}",
+        "author":{
+          "@type":"Person",
+          "name":"{{ site.author.name }}"
+        },
+        "headline":"{{ site.title }}",
+        "@context":"https://schema.org"
+      }
+    </script>
+  </head>

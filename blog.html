@@ -1,0 +1,37 @@
+---
+layout: default
+title: Blog
+redirect_from:
+  - /blog/
+permalink: /blog
+subset: blog
+footer: true
+---
+
+<h1 style="color: black; text-align: center;">Hi there,&nbsp;</h1>
+
+<img alt="Story Telling" data-src="{{ base }}/assets/img/posts/storytelling.png" class="lazyload in-up" />
+
+<div class="container centered">
+  <ul class="side">
+    <li>Feel free to either check the&nbsp;</li>
+    <li><a href="javascript:void(0)" class="tweets-click">&nbsp;Tweets&nbsp;</a></li>
+    <li>I follow, or my&nbsp;</li>
+    <li><a href="javascript:void(0)" class="posts-click">&nbsp;Posts&nbsp;</a></li>
+  </ul>
+</div>
+
+<div class="container centered tweets-grid">
+    <div class="Grid">
+        <!-- The heading "Follow Us @TwitterOSS" is inserted with Javascript -->
+        <div id="open-source-timeline" class="Grid-cell timeline-cell u-size1of2">
+            <a class="twitter-timeline" data-height="700px" data-width="700px" href="https://twitter.com/Cloud_Devops">Tweets by TwitterOSS</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+</div>
+
+<div class="container centered posts-grid">
+  <h1 class="page-heading">Posts</h1>
+  <div id="search-searchbar"></div>
+  <div class="post-list" id="search-hits"></div>
+</div>

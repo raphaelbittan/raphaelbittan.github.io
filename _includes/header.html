@@ -1,0 +1,28 @@
+<div class="container-fluid centered">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand mr-5" href="{{ base }}/"><img src="{{ base }}/assets/img/logo/logo_name.png" alt="Raphael Bittan" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mt-2 mt-lg-0 powered">
+        <li><a href="{{ base }}/#about" hreflang="x-default" title="HOME"><p>&nbsp;HOME&nbsp;</p></a></li>
+        {% if page.title == 'Projects' %}
+        <li><a href="{{ base }}/projects.html" hreflang="x-default" title="PROJECTS"><p class="active">&nbsp;PROJECTS&nbsp;</p></a></li>
+        {% else %}
+        <li><a href="{{ base }}/projects.html" hreflang="x-default" title="PROJECTS"><p>&nbsp;PROJECTS&nbsp;</p></a></li>
+        {% endif %}
+        {% if page.title == 'Blog' %}
+        <li><a href="{{ base }}/blog.html" hreflang="x-default" title="BLOG"><p class="active">&nbsp;BLOG&nbsp;</p></a></li>
+        {% else %}
+        <li><a href="{{ base }}/blog.html" hreflang="x-default" title="BLOG"><p>&nbsp;BLOG&nbsp;</p></a></li>
+        {% endif %}
+        {% if page.title == 'About' %}
+        <li><a href="{{ base }}/about.html" hreflang="x-default" title="ABOUT"><p class="active">&nbsp;ABOUT&nbsp;</p></a></li>
+        {% else %}
+        <li><a href="{{ base }}/about.html" hreflang="x-default" title="ABOUT"><p>&nbsp;ABOUT&nbsp;</p></a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+</div>

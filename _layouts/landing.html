@@ -1,0 +1,16 @@
+{% include base.html %}
+{% include head.html %}
+
+  <body>
+  	{% include landing.html %}
+    <section id="about">
+      {% include about.html %}
+    </section>
+    <section id="projects">
+      {% include projects.html %}
+    </section>
+    {{ content | emojify }}
+    {% include footer.html %}
+    {% include end_of_body_scripts.html %}
+  </body>
+</html> 

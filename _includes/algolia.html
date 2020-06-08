@@ -1,0 +1,69 @@
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<script type="text/javascript" src="{{ base }}/assets/js/readingtime.js"></script>
+<script>
+  const search = instantsearch({
+    appId: '{{ site.algolia.application_id }}',
+    apiKey: '{{ site.algolia.search_only_api_key }}',
+    indexName: '{{ site.algolia.index_name }}'
+  });
+
+  const hitTemplate = function(hit) {
+    let date = '';
+    if (hit.date) {
+      date = moment.unix(hit.date).format('MMM D, YYYY');
+    }
+    let url = `{{ base }}${hit.url}#${hit.anchor}`;
+
+    const title = hit._highlightResult.title.value;
+
+    let breadcrumbs = '';
+    if (hit._highlightResult.headings) {
+      breadcrumbs = hit._highlightResult.headings.map(match => {
+        return `<span class="post-breadcrumb">${match.value}</span>`
+      }).join(' > ')
+    }
+    const content = hit._highlightResult.html.value;
+
+    $(function() {
+      $('.post-item').each(function() {
+        $(this).readingTime({
+          readingTimeTarget: $(this).find('.eta'),
+          remotePath: $(this).attr('data-file'),
+          remoteTarget: $(this).attr('data-target')
+        });
+      });
+    });
+
+    return `
+      <article class="post-item" data-file="${url}" data-target="article">
+        <span class="post-meta">${date}</span><br />
+        <span><small><span class="eta"></span> Read</small></span>
+        <h2><a class="post-link" href="${url}">${title}</a></h2>
+        {{breadcrumbs}}<a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>{{breadcrumbs}}
+        <div class="post-snippet">${content}</div>
+        <br />
+        <hr />
+      </article>
+    `;
+  }
+
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#search-searchbar',
+      placeholder: 'Search into posts...',
+      poweredBy: true
+    })
+  );
+
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#search-hits',
+      templates: {
+        item: hitTemplate
+      }
+    })
+  );
+
+  search.start();
+</script>

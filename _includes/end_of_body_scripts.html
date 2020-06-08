@@ -1,0 +1,57 @@
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Bootstrap CDN with jQuery & Popper -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script type="text/javascript" src="{{ base }}/assets/js/ie10-viewport-bug-workaround.min.js"></script>
+<script type="text/javascript" src="{{ base }}/assets/js/animate.min.js"></script>
+<script type="text/javascript" src="{{ base }}/assets/js/language-redirect.min.js"></script>
+{% if page.title == 'Welcome' %}
+  <script type="text/javascript" src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script type="text/javascript" src="{{ base }}/assets/js/particle.min.js"></script>
+  <script type="text/javascript" src="{{ base }}/assets/js/lazysizes.min.js" async></script>
+{% endif %}
+{% if page.title == 'About' %}
+  <script type="text/javascript" src="{{ base }}/assets/js/repositories.min.js"></script>
+{% endif %}
+{% if page.layout == 'post' %}
+  {% if page.comments == true %}
+    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript" src="{{ base }}/assets/js/prettydate.min.js"></script>
+    <script type="text/javascript" src="{{ base }}/assets/js/comment.min.js"></script>
+    <script type="text/javascript" src="{{ base }}/assets/js/readingtime.js"></script>
+  {% endif %}
+{% endif %}
+{% if page.title == 'Blog' %}
+  {% include algolia.html %}
+{% endif %}
+<script type="text/javascript">
+  this.onpush = function(event) {
+    console.log(event.data);
+  }
+
+  // Only trigger if service workers are supported in browser.
+  if ('serviceWorker' in navigator) {
+    // Wait until window is loaded before registering.
+    window.addEventListener('load', () => {
+      // Register the service worker with "/" as it's scope.
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        // Output success/failure of registration.
+        .then(
+          function(serviceWorkerRegistration) {
+            serviceWorkerRegistration.pushManager.subscribe().then(
+              function(pushSubscription) {
+                  console.log(pushSubscription.subscriptionId);
+                  console.log(pushSubscription.endpoint);
+              }, function(error) {
+                  console.log(error);
+              }
+            );
+          },
+          console.log('SW registered')
+        )
+        .catch(() => console.error('SW registration failed'));
+    });
+  }
+</script>
