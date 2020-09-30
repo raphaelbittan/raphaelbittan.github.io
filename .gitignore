@@ -4,6 +4,7 @@
 *.iml
 
 # Build
+_data/
 _site/
 src/
 
@@ -30,6 +31,7 @@ report/
 
 # Misc
 .sekrets.key
+.post-template
 .history
 .DS_Store
 ROADMAP.md
